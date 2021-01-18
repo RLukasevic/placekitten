@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import FilterElement from './Filterelement';
+import FilterElement from './FilterElement';
 
 const Filter = (props:any) => {
     return (
@@ -8,6 +8,7 @@ const Filter = (props:any) => {
             <FilterElement count={30} filterClick={props.filterClick} current={props.current} />
             <FilterElement count={50} filterClick={props.filterClick} current={props.current} />
             <FilterElement count={100} filterClick={props.filterClick} current={props.current} />
+            <FilterElement count={props.filterInput} filterClick={props.inputClick} current={props.current} />
         </View>
     );
 }

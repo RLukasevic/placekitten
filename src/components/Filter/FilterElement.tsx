@@ -1,12 +1,12 @@
 import React from 'react';
 import { StyleSheet, View, TouchableHighlight, Text } from 'react-native';
 
-const Filterelement = (props:any) => {
+const FilterElement = (props:any) => {
 
     return (
         <View style={styles.container}>
             <TouchableHighlight onPress={() => props.filterClick(props.count)}>
-                <Text style={props.current === props.count ? styles.buttonActive : styles.button}>
+                <Text style={props.current == props.count ? styles.buttonActive : styles.button}>
                     {props.count}
                 </Text>
             </TouchableHighlight>
@@ -43,4 +43,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Filterelement;
+export default FilterElement;
