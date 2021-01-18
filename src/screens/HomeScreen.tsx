@@ -8,7 +8,8 @@ import Filter from '../components/Filter/Filter';
 import UserInputModal from '../components/UserInputModal';
 import NetInfo from '@react-native-community/netinfo';
 import { setKittens, resetKittens, toggleModal, setCurrentFilter } from '../redux/actions/HomeScreen.actions';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+//import AsyncStorage from '@react-native-async-storage/async-storage';
+import { AsyncStorage } from 'react-native';
 
 const HomeScreen = (props:any) => {
 
@@ -23,24 +24,24 @@ const HomeScreen = (props:any) => {
 
     useEffect(() => {
 
-        console.log(props.kittenList.kittenList)
-
         NetInfo.fetch().then(async connectivity => {
-            if (props.kittenList.kittenList !== undefined) {
-                if (props.kittenList.kittenList.length !== props.filter.current && connectivity.isConnected ) {
+            if (connectivity.isConnected) {
+                if (props.kittenList.kittenList !== undefined) {
+                    if (props.kittenList.kittenList.length !== props.filter.current ) {
+                        initiateNewKittens()
+                    } 
+                } else {
                     initiateNewKittens()
-                } 
-    
-                if (props.kittenList.kittenList.length > 0  && !connectivity.isConnected) {
-                    props.resetKittens()
                 }
             } else {
-                let asyncStorageKittens = await getKittensFromAsyncStorage()
-                if (asyncStorageKittens === null) {
-                    initiateNewKittens()
-                } else {
-                    props.setKittens(asyncStorageKittens)
-                    console.log(props.kittenList.kittenList)
+                if (props.kittenList.kittenList === undefined) {
+                    let asyncStorageKittens = await getKittensFromAsyncStorage()
+                    if (asyncStorageKittens === null) {
+                    } else {
+                        if (asyncStorageKittens !== props.kittenList.kittenList) {
+                            props.setKittens(asyncStorageKittens)  
+                        }
+                    }
                 }
             }
         });
