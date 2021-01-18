@@ -2,7 +2,7 @@
 
 ### How to run this project
 
-First of all, you can view this project in action by downloading built .apk file [from here](**********LINK BEZ ZVEZD***********).
+First of all, you can view this project in action by downloading built .apk file [from here](https://www.dropbox.com/s/xsv2boxr9o63zff/get-kittens-ece88777bfe1483fb13be7ad57781136-signed.apk?dl=0).
 
 If you want to run it on your localhost, follow the steps below :
 
