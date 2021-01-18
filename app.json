@@ -1,12 +1,22 @@
 {
-  "name": "placekitten",
-  "displayName": "placekitten",
+  "name": "Get Kittens",
+  "displayName": "Kitties",
   "expo": {
-    "name": "placekitten",
-    "slug": "placekitten",
+    "name": "Get Kittens",
+    "icon": "./src/assets/kitty.png",
+    "splash": {
+      "image": "./src/assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000000"
+    },
     "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+    "ios": {
+      "bundleIdentifier": "no.url.App",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "no.url.App",
+      "versionCode": 1
+    }
   }
 }
